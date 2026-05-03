@@ -7,7 +7,7 @@ Landing page moderna e responsiva para barbearia, desenvolvida com foco em **con
 ## 🚀 Demonstração
 
 🔗 Acesse o projeto online:
-[https://seu-link-aqui.netlify.app](https://barberstudioelite.netlify.app/)
+  https://barberstudioelite.netlify.app/
 
 ---
 
