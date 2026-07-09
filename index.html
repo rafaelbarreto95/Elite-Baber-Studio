@@ -42,8 +42,8 @@
                 <a href="#contato">Contato</a>
             </nav>
 
-            <a class="btn btn-header" href="https://wa.me/5511983786374?text=Quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener"
-                title="Agendar horário pelo WhatsApp">
+            <a class="btn btn-header" href="#agendamento"
+                title="Agendar horário pelo site">
                 Agendar
             </a>
 
@@ -288,12 +288,83 @@
         <section id="contato" class="section container cta-section">
             <p class="eyebrow center">Horários limitados</p>
             <h2>Garanta seu horário</h2>
-            <p class="cta-sub">Atendemos com hora marcada — chame no WhatsApp e escolha o melhor horário para você.</p>
+            <p class="cta-sub">Preencha os dados abaixo ou chame direto no WhatsApp — como preferir.</p>
 
-            <a class="btn btn-primary" href="https://wa.me/5511983786374?text=Quero%20agendar" target="_blank" rel="noopener"
-                title="Agendar agora">
-                Agendar agora
+            <a class="btn btn-ghost" href="https://wa.me/5511983786374?text=Quero%20agendar" target="_blank" rel="noopener"
+                title="Agendar agora pelo WhatsApp">
+                Prefiro chamar direto no WhatsApp
             </a>
+
+            <div id="agendamento" class="booking-card reveal">
+                <div class="booking-tab">Ficha de agendamento</div>
+
+                <form id="bookingForm" class="booking-form" novalidate>
+                    <div class="booking-field">
+                        <label for="bkNome">Nome</label>
+                        <input type="text" id="bkNome" name="nome" placeholder="Seu nome" required>
+                    </div>
+
+                    <div class="booking-field">
+                        <label for="bkServico">Serviço</label>
+                        <select id="bkServico" name="servico" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option>Corte de cabelo</option>
+                            <option>Barba</option>
+                            <option>Corte + Barba</option>
+                            <option>Prótese capilar</option>
+                            <option>Química capilar</option>
+                            <option>Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="booking-row">
+                        <div class="booking-field">
+                            <label for="bkData">Data</label>
+                            <input type="date" id="bkData" name="data" required>
+                        </div>
+
+                        <div class="booking-field">
+                            <label for="bkHorario">Horário</label>
+                            <select id="bkHorario" name="horario" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option>09:00</option>
+                                <option>09:30</option>
+                                <option>10:00</option>
+                                <option>10:30</option>
+                                <option>11:00</option>
+                                <option>11:30</option>
+                                <option>13:00</option>
+                                <option>13:30</option>
+                                <option>14:00</option>
+                                <option>14:30</option>
+                                <option>15:00</option>
+                                <option>15:30</option>
+                                <option>16:00</option>
+                                <option>16:30</option>
+                                <option>17:00</option>
+                                <option>17:30</option>
+                                <option>18:00</option>
+                                <option>18:30</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="booking-field">
+                        <label for="bkObs">Observação <span>(opcional)</span></label>
+                        <input type="text" id="bkObs" name="obs" placeholder="Ex: corte igual ao da última vez">
+                    </div>
+
+                    <p id="bookingError" class="booking-error" hidden>Preencha nome, serviço, data e horário para continuar.</p>
+
+                    <button type="submit" class="btn btn-primary booking-submit">
+                        Enviar agendamento pelo WhatsApp
+                    </button>
+
+                    <p class="booking-note">
+                        O horário só é confirmado depois que o barbeiro responder no WhatsApp.
+                    </p>
+                </form>
+            </div>
         </section>
 
         <!-- LOCALIZAÇÃO -->

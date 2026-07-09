@@ -52,6 +52,57 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // ================= BOOKING FORM =================
+    const bookingForm = document.getElementById("bookingForm");
+
+    if (bookingForm) {
+        const dataInput = document.getElementById("bkData");
+        const errorMsg = document.getElementById("bookingError");
+
+        // impede escolher datas passadas
+        if (dataInput) {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, "0");
+            const dd = String(today.getDate()).padStart(2, "0");
+            dataInput.min = `${yyyy}-${mm}-${dd}`;
+        }
+
+        bookingForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const nome = document.getElementById("bkNome").value.trim();
+            const servico = document.getElementById("bkServico").value;
+            const dataValor = document.getElementById("bkData").value;
+            const horario = document.getElementById("bkHorario").value;
+            const obs = document.getElementById("bkObs").value.trim();
+
+            if (!nome || !servico || !dataValor || !horario) {
+                errorMsg.hidden = false;
+                return;
+            }
+            errorMsg.hidden = true;
+
+            // formata a data para dd/mm/aaaa
+            const [ano, mes, dia] = dataValor.split("-");
+            const dataFormatada = `${dia}/${mes}/${ano}`;
+
+            let mensagem =
+                `Olá! Quero agendar um horário.\n` +
+                `Nome: ${nome}\n` +
+                `Serviço: ${servico}\n` +
+                `Data: ${dataFormatada}\n` +
+                `Horário: ${horario}`;
+
+            if (obs) {
+                mensagem += `\nObservação: ${obs}`;
+            }
+
+            const url = `https://wa.me/5511983786374?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, "_blank", "noopener");
+        });
+    }
+
     // ================= SCROLL REVEAL =================
     const revealEls = document.querySelectorAll(".reveal");
 
